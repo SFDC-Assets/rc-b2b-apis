@@ -46,8 +46,7 @@ public with sharing class rcB2BSearchRebuildIndex {
     @AuraEnabled(cacheable=true)    
 	public static String getWebstoreId(String communityId) {
     	System.debug('rcB2BSearchRebuildIndex > getWebstoreId - communityId: ' + communityId);
-        String webStoreId = 'comment out this line and replace below';
-        //String webStoreId = [SELECT WebStoreId FROM WebStoreNetwork WHERE NetworkId = :communityId WITH SECURITY_ENFORCED LIMIT 1].WebStoreId;
+        String webStoreId = [SELECT WebStoreId FROM WebStoreNetwork WHERE NetworkId = :communityId WITH SECURITY_ENFORCED LIMIT 1].WebStoreId;
         System.debug('rcB2BSearchRebuildIndex > getWebstoreId - communityId: ' + communityId + ', webStoreId: ' + webStoreId);
       	return webStoreId;
     } 
